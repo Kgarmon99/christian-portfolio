@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://amd-growing-transaction-trails.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://amd-growing-transaction-trails.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://amd-growing-transaction-trails.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://amd-growing-transaction-trails.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/" }
   ],
   "headers": [
     {
