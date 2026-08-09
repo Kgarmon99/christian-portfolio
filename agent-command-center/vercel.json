@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/" }
   ],
   "headers": [
     {
