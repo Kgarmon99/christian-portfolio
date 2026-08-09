@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://tree-pentium-weblog-shannon.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://tree-pentium-weblog-shannon.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://tree-pentium-weblog-shannon.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://tree-pentium-weblog-shannon.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://construction-effective-volume-talent.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://construction-effective-volume-talent.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://construction-effective-volume-talent.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://construction-effective-volume-talent.trycloudflare.com/" }
   ],
   "headers": [
     {
