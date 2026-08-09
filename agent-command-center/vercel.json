@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://appreciation-sustained-excluded-gui.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://appreciation-sustained-excluded-gui.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://appreciation-sustained-excluded-gui.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://appreciation-sustained-excluded-gui.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://majority-circuits-little-trace.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://majority-circuits-little-trace.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://majority-circuits-little-trace.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://majority-circuits-little-trace.trycloudflare.com/" }
   ],
   "headers": [
     {
