@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://construction-effective-volume-talent.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://construction-effective-volume-talent.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://construction-effective-volume-talent.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://construction-effective-volume-talent.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/" }
   ],
   "headers": [
     {
