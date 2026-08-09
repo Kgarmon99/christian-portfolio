@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://africa-changing-annotation-toe.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://africa-changing-annotation-toe.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://africa-changing-annotation-toe.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://africa-changing-annotation-toe.trycloudflare.com/" }
   ],
   "headers": [
     {
