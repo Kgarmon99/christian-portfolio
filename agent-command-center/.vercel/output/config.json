@@ -1,0 +1,51 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "^/api/bots/live$",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS"
+      },
+      "continue": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/agents$",
+      "dest": "/index.html",
+      "check": true
+    },
+    {
+      "src": "^/agents(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?$",
+      "dest": "/index.html?path=$1",
+      "check": true
+    },
+    {
+      "src": "^/api(/.*)?$",
+      "status": 404
+    },
+    {
+      "handle": "error"
+    },
+    {
+      "status": 404,
+      "src": "^(?!/api).*$",
+      "dest": "/404.html"
+    },
+    {
+      "handle": "miss"
+    },
+    {
+      "src": "^/api/(.+)(?:\\.(?:ts))$",
+      "dest": "/api/$1",
+      "check": true
+    }
+  ],
+  "framework": {
+    "slug": "vite",
+    "version": "8.2.1"
+  },
+  "crons": []
+}

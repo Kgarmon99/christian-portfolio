@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_bWxVMRFDW5Aj1DaeMaM4gHc8Py3Y",
+  "orgId": "team_hFyozVWSOzlq1L9LuWo9U94e",
+  "projectName": "agent-command-center",
+  "settings": {
+    "createdAt": 1786251609898,
+    "framework": "vite",
+    "devCommand": null,
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
