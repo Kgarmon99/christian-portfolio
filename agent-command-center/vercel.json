@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://energy-mic-olympic-trading.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://energy-mic-olympic-trading.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://energy-mic-olympic-trading.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://energy-mic-olympic-trading.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://ira-task-housing-rpg.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://ira-task-housing-rpg.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://ira-task-housing-rpg.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://ira-task-housing-rpg.trycloudflare.com/" }
   ],
   "headers": [
     {
