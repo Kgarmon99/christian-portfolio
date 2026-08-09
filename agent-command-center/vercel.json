@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://powerpoint-genetics-reflect-generous.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://powerpoint-genetics-reflect-generous.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://powerpoint-genetics-reflect-generous.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://powerpoint-genetics-reflect-generous.trycloudflare.com/" }
   ],
   "headers": [
     {
