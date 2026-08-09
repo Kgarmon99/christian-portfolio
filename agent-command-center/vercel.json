@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://regional-investigations-authorized-registered.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/" }
   ],
   "headers": [
     {
