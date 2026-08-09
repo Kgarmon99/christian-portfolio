@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://processed-uncertainty-bottom-cartoons.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://processed-uncertainty-bottom-cartoons.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://processed-uncertainty-bottom-cartoons.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://processed-uncertainty-bottom-cartoons.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://anaheim-measures-nikon-advanced.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://anaheim-measures-nikon-advanced.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://anaheim-measures-nikon-advanced.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://anaheim-measures-nikon-advanced.trycloudflare.com/" }
   ],
   "headers": [
     {
