@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://trends-gets-donate-finals.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://trends-gets-donate-finals.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://trends-gets-donate-finals.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://trends-gets-donate-finals.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://executive-womens-extract-biological.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://executive-womens-extract-biological.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://executive-womens-extract-biological.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://executive-womens-extract-biological.trycloudflare.com/" }
   ],
   "headers": [
     {
