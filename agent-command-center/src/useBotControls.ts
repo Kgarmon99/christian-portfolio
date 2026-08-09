@@ -20,7 +20,7 @@ export function useBotControls(botId: string) {
         const apiBase =
           typeof import.meta.env !== 'undefined' && import.meta.env.VITE_LIVE_BOTS_API_URL
             ? import.meta.env.VITE_LIVE_BOTS_API_URL.replace(/\/$/, '')
-            : ''
+            : 'https://probability-shirts-berkeley-shelf.trycloudflare.com'
         const res = await fetch(`${apiBase}/api/bots/${botId}/${action}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

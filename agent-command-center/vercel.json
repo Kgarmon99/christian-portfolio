@@ -16,8 +16,5 @@
         { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
       ]
     }
-  ],
-  "env": {
-    "VITE_LIVE_BOTS_API_URL": "https://probability-shirts-berkeley-shelf.trycloudflare.com"
-  }
+  ]
 }

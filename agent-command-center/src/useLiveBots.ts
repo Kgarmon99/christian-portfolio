@@ -39,7 +39,7 @@ export function useLiveBots(pollMs = 3000) {
         const apiUrl =
           typeof import.meta.env !== 'undefined' && import.meta.env.VITE_LIVE_BOTS_API_URL
             ? import.meta.env.VITE_LIVE_BOTS_API_URL
-            : ''
+            : 'https://probability-shirts-berkeley-shelf.trycloudflare.com'
         const res = await fetch(`${apiUrl}/api/bots/live`, {
           signal: controller.signal,
           headers: { Accept: 'application/json' },
