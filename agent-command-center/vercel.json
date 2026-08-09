@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://jeans-contacts-investor-zoning.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://fairy-medicine-least-richard.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://fairy-medicine-least-richard.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://fairy-medicine-least-richard.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://fairy-medicine-least-richard.trycloudflare.com/" }
   ],
   "headers": [
     {
