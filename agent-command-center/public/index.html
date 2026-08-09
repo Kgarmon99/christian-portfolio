@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#ffffff">
   <title>KG Builds — Kahlil Garmon</title>
-  <meta name="description" content="KG Builds: products, experiments, and live agent operations by Kahlil Garmon.">
+  <meta name="description" content="KG Builds: products, experiments, and aspirational projects by Kahlil Garmon.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
       --line-subtle: #f0f0f0;
       --accent: #00d26a;
       --accent-soft: #e6fff2;
-      --accent-dim: #b3ffd6;
       --surface: #fafafa;
+      --aspiration: #f8fafc;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -29,12 +29,10 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
 
-    /* Grid background */
     .grid-bg {
       position: fixed;
       inset: 0;
@@ -44,34 +42,31 @@
         linear-gradient(to right, var(--line-subtle) 1px, transparent 1px),
         linear-gradient(to bottom, var(--line-subtle) 1px, transparent 1px);
       background-size: 60px 60px;
-      opacity: 0.7;
+      opacity: 0.6;
     }
     .grid-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, transparent 0%, var(--bg) 70%);
+      background: radial-gradient(ellipse at 60% 30%, transparent 0%, var(--bg) 65%);
     }
 
-    /* Layout */
-    .page {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    .page { position: relative; z-index: 1; }
     .container {
       width: 100%;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 48px;
+      padding: 0 32px;
     }
 
-    /* Header */
     header {
       border-bottom: 1px solid var(--line);
       padding: 20px 0;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .header-inner {
       display: flex;
@@ -81,7 +76,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
       font-weight: 500;
@@ -99,46 +94,22 @@
       font-weight: 600;
       font-size: 0.75rem;
     }
-    .logo-text { color: var(--text); }
+
     nav {
       display: flex;
-      gap: 40px;
+      gap: 32px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
       font-weight: 400;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
-    nav a {
-      color: var(--text-muted);
-      position: relative;
-      transition: color 0.2s;
-    }
-    nav a:hover, nav a.active { color: var(--text); }
-    nav a.active::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--accent);
-    }
+    nav a { color: var(--text-muted); transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
 
-    /* Hero */
     .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 720px;
-      padding: 100px 0 120px;
-      position: relative;
-    }
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
+      padding: 80px 0 60px;
+      max-width: 700px;
     }
     .eyebrow {
       font-family: 'JetBrains Mono', monospace;
@@ -147,126 +118,161 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--text-subtle);
+      margin-bottom: 20px;
     }
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 700;
       font-style: italic;
       line-height: 0.95;
       letter-spacing: -0.04em;
-      margin: 0;
-      color: var(--accent);
-      text-shadow: 0 0 40px rgba(0, 210, 106, 0.25);
+      margin: 0 0 24px;
+      color: var(--text);
     }
-    .hero-sub {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
+    h1 span { color: var(--accent); }
     .hero-body {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.7;
       color: var(--text-muted);
-      max-width: 460px;
-      margin: 0;
+      max-width: 520px;
+      margin: 0 0 32px;
     }
     .hero-body strong { color: var(--text); font-weight: 500; }
 
-    /* Clipped button */
-    .cta {
+    .section {
+      padding: 60px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .section-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+      border-color: var(--accent-dim, #b3ffd6);
+    }
+    .card.aspiration { background: var(--aspiration); border-style: dashed; }
+    .card-status {
       display: inline-flex;
       align-items: center;
-      gap: 24px;
-      padding: 18px 28px;
-      border: 1.5px solid var(--accent);
-      background: transparent;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      clip-path: polygon(
-        0 0,
-        calc(100% - 16px) 0,
-        100% 16px,
-        100% 100%,
-        16px 100%,
-        0 calc(100% - 16px)
-      );
-      transition: background 0.2s, color 0.2s;
-      margin-top: 8px;
-      max-width: fit-content;
-    }
-    .cta:hover {
-      background: var(--accent-soft);
-    }
-    .cta small {
-      display: block;
+      gap: 8px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-subtle);
-      margin-top: 2px;
-    }
-    .cta-arrow {
-      font-size: 1.3rem;
-      color: var(--accent);
-    }
-
-    /* Hero right visual */
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 24px 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-subtle);
+      margin-bottom: 16px;
     }
-    .footer-links {
-      display: flex;
-      gap: 32px;
-    }
-    .footer-links a { transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-
-    /* Live pill */
-    .live-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      max-width: fit-content;
-    }
-    .live-dot {
+    .card-status .dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 8px var(--accent);
+    }
+    .card-status .dot.soon { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+    .card-status .dot.idea { background: #94a3b8; box-shadow: none; }
+    .card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0 0 18px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text-muted);
+    }
+    .card-link {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .live-lab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+    .live-lab .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
       animation: pulse 2s infinite;
     }
-    .live-dot.warn { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
-    .live-dot.danger { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
@@ -274,7 +280,10 @@
 
     @media (max-width: 900px) {
       .container { padding: 0 24px; }
-      .hero { padding: 60px 0 80px; }
+      .hero { padding: 60px 0 40px; }
+      .section { padding: 40px 0; }
+      .project-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
       nav { display: none; }
     }
   </style>
@@ -286,42 +295,101 @@
       <div class="container header-inner">
         <a href="/" class="logo">
           <span class="logo-box">KG</span>
-          <span class="logo-text">Kahlil Garmon</span>
+          <span>KG Builds</span>
         </a>
         <nav>
-          <a href="/" class="active">Home</a>
-          <a href="/agents">Agents</a>
+          <a href="/">Builds</a>
           <a href="https://kahlilgarmon.com" target="_blank" rel="noopener">About</a>
+          <a href="mailto:kahlil@getmoneybot.com">Contact</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
       <section class="hero">
-        <div class="hero-left">
-          <span class="eyebrow">Founder of MoneyBot // Louisville, KY</span>
-          <h1>Kahlil<br>Garmon</h1>
-          <span class="hero-sub">BUILDING AGENT FLEETS IN PUBLIC</span>
-          <p class="hero-body">
-            I ship products, run live AI agents, and build financial literacy tools for the next generation. <strong>KG Builds</strong> is my operating floor.
-          </p>
-          <div class="live-pill" id="livePill">
-            <span class="live-dot" id="statusDot"></span>
-            <span id="statusText">Loading agents…</span>
-          </div>
-          <a href="/agents" class="cta">
-            <span>
-              Explore Agent Floor
-              <small>Live telemetry · 24/7 ops</small>
-            </span>
-            <span class="cta-arrow">→</span>
-          </a>
-        </div>
+        <div class="eyebrow">Kahlil Garmon // Louisville, KY</div>
+        <h1>Projects I’m <span>building</span> and want to build.</h1>
+        <p class="hero-body">
+          A public list of products, experiments, tools, and aspirational builds. Some are shipping, some are sketches, all are things I want to exist in the world.
+        </p>
+      </section>
 
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Builds</h2>
+          <span class="section-count">MoneyBot Universe</span>
+        </div>
+        <div class="project-grid">
+          <div class="card">
+            <div class="card-status"><span class="dot"></span> Active</div>
+            <h3>1. MoneyBot Mobile</h3>
+            <p>The MoneyBot experience rebuilt for phones — lessons, quests, and money practice designed for students on the go.</p>
+            <div class="card-tags">
+              <span class="tag">Mobile</span>
+              <span class="tag">App</span>
+              <span class="tag">Students</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-status"><span class="dot"></span> Active</div>
+            <h3>2. MoneyBot Schools</h3>
+            <p>Classroom and district tools for teachers — dashboards, curriculum alignment, student progress, and school partnerships.</p>
+            <div class="card-tags">
+              <span class="tag">Schools</span>
+              <span class="tag">Teachers</span>
+              <span class="tag">B2B</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-status"><span class="dot soon"></span> Building</div>
+            <h3>3. MoneyBot Games</h3>
+            <p>Browser-based financial literacy games — bite-sized, Chromebook-friendly, built to make money concepts stick through play.</p>
+            <div class="card-tags">
+              <span class="tag">Games</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">Chromebook</span>
+            </div>
+          </div>
+
+          <div class="card aspiration">
+            <div class="card-status"><span class="dot idea"></span> Idea</div>
+            <h3>4. MoneyBot Resource Hub</h3>
+            <p>A central place for financial literacy resources — guides, worksheets, videos, and tools for educators, parents, and students.</p>
+            <div class="card-tags">
+              <span class="tag">Resources</span>
+              <span class="tag">Content</span>
+              <span class="tag">SEO</span>
+            </div>
+          </div>
+
+          <div class="card aspiration">
+            <div class="card-status"><span class="dot idea"></span> Idea</div>
+            <h3>5. Financial Literacy Research Tracker</h3>
+            <p>A living collection of research, stats, and evidence that supports financial literacy education — ready for grants and proposals.</p>
+            <div class="card-tags">
+              <span class="tag">Research</span>
+              <span class="tag">Grants</span>
+              <span class="tag">Evidence</span>
+            </div>
+          </div>
+
+          <div class="card aspiration">
+            <div class="card-status"><span class="dot idea"></span> Idea</div>
+            <h3>6. PG-27 BotCity</h3>
+            <p>A 3D city where young people explore money concepts through characters, quests, and social gameplay. The long-term MoneyBot world.</p>
+            <div class="card-tags">
+              <span class="tag">Metaverse</span>
+              <span class="tag">3D World</span>
+              <span class="tag">Long-term</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="container footer-inner">
         <span>© 2026 Kahlil Garmon</span>
         <div class="footer-links">
@@ -329,32 +397,12 @@
           <a href="https://twitter.com/kahlilgarmon" target="_blank" rel="noopener">Twitter</a>
           <a href="https://linkedin.com/in/kahlilgarmon" target="_blank" rel="noopener">LinkedIn</a>
         </div>
+        <a href="/agents" class="live-lab">
+          <span class="dot"></span>
+          Live Lab
+        </a>
       </div>
     </footer>
   </div>
-
-  <script>
-    async function fetchAgentStatus() {
-      try {
-        const res = await fetch('/api/compound', { cache: 'no-store' });
-        const data = await res.json();
-        const dot = document.getElementById('statusDot');
-        const text = document.getElementById('statusText');
-        if (data.stale || !data.agents) {
-          dot.className = 'live-dot warn';
-          text.textContent = 'Agents stale';
-        } else {
-          const working = data.agents.filter(a => a.status === 'working').length;
-          dot.className = 'live-dot';
-          text.textContent = `${data.agents.length} agents · ${working} working`;
-        }
-      } catch (e) {
-        document.getElementById('statusDot').className = 'live-dot danger';
-        document.getElementById('statusText').textContent = 'Agents offline';
-      }
-    }
-    fetchAgentStatus();
-    setInterval(fetchAgentStatus, 10000);
-  </script>
 </body>
 </html>
