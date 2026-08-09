@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "rewrites": [
+    { "source": "/agents", "destination": "/index.html" },
+    { "source": "/agents/:path*", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/bots/live",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
+      ]
+    }
+  ],
+  "env": {
+    "VITE_LIVE_BOTS_API_URL": "https://probability-shirts-berkeley-shelf.trycloudflare.com"
+  }
+}
