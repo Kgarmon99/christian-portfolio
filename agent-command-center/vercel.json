@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://assembly-pants-des-sas.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://assembly-pants-des-sas.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://assembly-pants-des-sas.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://assembly-pants-des-sas.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://treaty-runtime-tears-sam.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://treaty-runtime-tears-sam.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://treaty-runtime-tears-sam.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://treaty-runtime-tears-sam.trycloudflare.com/" }
   ],
   "headers": [
     {
