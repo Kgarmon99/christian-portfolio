@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://pts-concrete-draws-extreme.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://pts-concrete-draws-extreme.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://pts-concrete-draws-extreme.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://pts-concrete-draws-extreme.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://presidential-responded-managed-endorsed.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://presidential-responded-managed-endorsed.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://presidential-responded-managed-endorsed.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://presidential-responded-managed-endorsed.trycloudflare.com/" }
   ],
   "headers": [
     {
