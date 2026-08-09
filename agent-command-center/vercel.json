@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://governing-faq-lists-muze.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://governing-faq-lists-muze.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://governing-faq-lists-muze.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://governing-faq-lists-muze.trycloudflare.com/" }
   ],
   "headers": [
     {
