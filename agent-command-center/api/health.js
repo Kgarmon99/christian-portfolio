@@ -49,15 +49,16 @@ export default async function handler(req) {
     checks.errors.push(`edge-config: ${err.message}`);
   }
 
-  try {
-    const acRes = await fetch('http://127.0.0.1:7331/api/compound?refresh=1', { cache: 'no-store' });
-    checks.agentCompoundReachable = acRes.ok;
-  } catch (err) {
-    checks.errors.push(`agent-compound: ${err.message}`);
-  }
+  // agent-compound runs on the Mac at 127.0.0.1:7331; Vercel Edge cannot reach it.
+  // The sync script and alert agent monitor it locally instead.
+  checks.agentCompoundReachable = null;
 
   const healthy = checks.edgeConfigReachable && checks.compoundPresent && checks.compoundFresh;
   const status = healthy ? 200 : 503;
+
+  // Edge runtime cannot reach localhost; this field is kept for documentation only.
+  checks.agentCompoundReachable = null;
+  checks.errors = checks.errors.filter(e => !e.startsWith('agent-compound:'));
 
   return new Response(JSON.stringify({ checkAt, healthy, ...checks }, null, 2), {
     status,
