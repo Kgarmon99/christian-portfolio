@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://keyboards-derived-scotia-strengthen.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://keyboards-derived-scotia-strengthen.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://keyboards-derived-scotia-strengthen.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://keyboards-derived-scotia-strengthen.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://cube-ann-hartford-smtp.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://cube-ann-hartford-smtp.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://cube-ann-hartford-smtp.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://cube-ann-hartford-smtp.trycloudflare.com/" }
   ],
   "headers": [
     {
