@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://cooking-printers-given-knitting.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://hazardous-qualify-loves-numerical.trycloudflare.com/" }
   ],
   "headers": [
     {
