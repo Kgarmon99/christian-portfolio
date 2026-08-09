@@ -3,193 +3,173 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#ffffff">
   <title>KG Builds — Kahlil Garmon</title>
   <meta name="description" content="KG Builds: products, experiments, and live agent operations by Kahlil Garmon.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface-2: #334155;
-      --text: #f8fafc;
-      --text-dim: #94a3b8;
-      --accent: #22d3ee;
-      --accent-2: #a3e635;
-      --danger: #f87171;
-      --warning: #fbbf24;
-      --radius: 16px;
+      --bg: #ffffff;
+      --text: #111111;
+      --text-dim: #666666;
+      --muted: #888888;
+      --line: #eeeeee;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --radius: 12px;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      font-size: 16px;
     }
     a { color: inherit; text-decoration: none; }
     .container {
-      max-width: 1100px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 24px;
     }
     header {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--surface);
+      padding: 48px 0 24px;
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
+      border-bottom: 1px solid var(--line);
     }
     .logo {
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
     }
-    .logo span { color: var(--accent); }
+    .logo span { color: var(--muted); font-weight: 400; }
     nav { display: flex; gap: 24px; }
     nav a {
       color: var(--text-dim);
-      font-weight: 500;
-      font-size: 0.9rem;
+      font-weight: 400;
+      font-size: 0.95rem;
       transition: color 0.2s;
     }
     nav a:hover { color: var(--text); }
-    .cta {
-      background: var(--text);
-      color: var(--bg);
-      padding: 8px 16px;
-      border-radius: 999px;
+    main { padding: 64px 0 96px; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 600;
-      font-size: 0.85rem;
-      transition: transform 0.2s, background 0.2s;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 24px;
     }
-    .cta:hover { transform: translateY(-1px); background: #fff; }
-    .hero {
-      padding: 120px 0 80px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin: 0 0 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
+    .lead {
+      font-size: 1.15rem;
       color: var(--text-dim);
       max-width: 620px;
-      margin: 0 auto 40px;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .hero-actions a {
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    .hero-actions .primary {
-      background: var(--accent);
-      color: #0f172a;
-    }
-    .hero-actions .primary:hover { filter: brightness(1.1); }
-    .hero-actions .secondary {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--surface-2);
-    }
-    .hero-actions .secondary:hover { border-color: var(--accent); }
-    .section {
-      padding: 80px 0;
-      border-top: 1px solid var(--surface);
-    }
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 16px;
-      letter-spacing: -0.02em;
-    }
-    .section > p {
-      color: var(--text-dim);
-      max-width: 600px;
       margin: 0 0 40px;
     }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .lead a {
+      color: var(--accent);
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
     }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--surface-2);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: transform 0.2s, border-color 0.2s;
+    .lead a:hover { border-bottom-color: var(--accent); }
+    .section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
     }
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
+    .section h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 20px;
     }
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      font-weight: 700;
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .card p {
+    .project:last-child { border-bottom: none; }
+    .project a {
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .project a:hover { color: var(--accent); }
+    .project p {
       margin: 0;
       color: var(--text-dim);
       font-size: 0.95rem;
     }
-    .status-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-2);
-      margin-right: 8px;
-      box-shadow: 0 0 8px var(--accent-2);
-      animation: pulse 2s infinite;
-    }
-    .status-dot.warn { background: var(--warning); box-shadow: 0 0 8px var(--warning); }
-    .status-dot.danger { background: var(--danger); box-shadow: 0 0 8px var(--danger); }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    .live-bar {
-      background: var(--surface);
-      border: 1px solid var(--surface-2);
-      border-radius: var(--radius);
-      padding: 20px 28px;
+    .meta {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
     }
-    .live-bar strong { font-weight: 700; }
-    .live-bar span { color: var(--text-dim); font-size: 0.9rem; }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    .status-dot.warn { background: #f59e0b; }
+    .status-dot.danger { background: #ef4444; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 16px;
+    }
+    .links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .links a {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .links a:hover { border-bottom-color: var(--accent); }
     footer {
-      border-top: 1px solid var(--surface);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-dim);
+      border-top: 1px solid var(--line);
+      padding: 32px 0 64px;
+      color: var(--muted);
       font-size: 0.85rem;
     }
-    footer a { color: var(--text); }
+    footer a { color: var(--text-dim); }
+    footer a:hover { color: var(--text); }
     @media (max-width: 600px) {
+      header { padding-top: 32px; }
       nav { display: none; }
-      .hero { padding: 80px 0 60px; }
-      .section { padding: 60px 0; }
+      main { padding: 40px 0 64px; }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -198,59 +178,52 @@
     <a href="/" class="logo">KG <span>Builds</span></a>
     <nav>
       <a href="/agents">Agents</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
+      <a href="https://kahlilgarmon.com" target="_blank" rel="noopener">About</a>
     </nav>
-    <a href="https://twitter.com/kahlilgarmon" class="cta" target="_blank" rel="noopener">@kahlilgarmon</a>
   </header>
 
-  <section class="hero container">
-    <h1>Building the future of financial literacy with AI agents.</h1>
-    <p>Kahlil Garmon — founder of MoneyBot. I ship products, run live agent fleets, and experiment in public.</p>
-    <div class="hero-actions">
-      <a href="/agents" class="primary">View Live Agent Floor</a>
-      <a href="#projects" class="secondary">Explore Projects</a>
-    </div>
-  </section>
+  <main class="container">
+    <h1>Kahlil Garmon builds products and agent fleets in public.</h1>
+    <p class="lead">
+      Founder of <a href="https://getmoneybot.com" target="_blank" rel="noopener">MoneyBot</a>. Based in Louisville, Kentucky. I work at the intersection of financial literacy, education, and AI. This is where I ship experiments and run live operations.
+    </p>
 
-  <section class="section container" id="live">
-    <h2>Live Operations</h2>
-    <p>My agent fleet is running 24/7 on the KG Builds Agent Floor. Real-time status, decisions, and telemetry.</p>
-    <div class="live-bar">
-      <div>
-        <span class="status-dot" id="statusDot"></span>
-        <strong id="agentStatus">Loading agents…</strong>
+    <span class="pill" id="agentPill"><span class="status-dot" id="statusDot"></span><span id="agentText">Loading agents…</span></span>
+
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <a href="/agents">KG Builds Agent Floor</a>
+        <p>Live command center for my AI agent fleet. Telemetry synced from my Mac to the cloud every 10 seconds.</p>
+        <div class="meta">
+          <span id="agentMeta">Checking status…</span>
+        </div>
       </div>
-      <a href="/agents" class="cta">Open Agent Floor →</a>
-    </div>
-  </section>
 
-  <section class="section container" id="projects">
-    <h2>Projects</h2>
-    <p>A few things I'm actively building and shipping.</p>
-    <div class="cards">
-      <a href="/agents" class="card">
-        <h3>🤖 KG Builds Agent Floor</h3>
-        <p>Live command center for my AI agent fleet. Telemetry synced from my Mac to Vercel Edge Config every 10 seconds.</p>
-      </a>
-      <a href="https://getmoneybot.com" class="card" target="_blank" rel="noopener">
-        <h3>💰 MoneyBot</h3>
+      <div class="project">
+        <a href="https://getmoneybot.com" target="_blank" rel="noopener">MoneyBot</a>
         <p>Financial literacy education platform for young people. Schools, media partnerships, and AI-powered learning.</p>
-      </a>
-      <a href="https://kahlilgarmon.com" class="card" target="_blank" rel="noopener">
-        <h3>🌐 Personal Site</h3>
-        <p>Writing, speaking, and project updates from Kahlil Garmon.</p>
-      </a>
-    </div>
-  </section>
+      </div>
 
-  <section class="section container" id="about">
-    <h2>About</h2>
-    <p>I'm a founder based in Louisville, Kentucky, working at the intersection of education, money, and AI. MoneyBot exists to help young people build a healthier relationship with money. KG Builds is where I ship experiments and operate my agent fleet in the open.</p>
-  </section>
+      <div class="project">
+        <a href="https://kahlilgarmon.com" target="_blank" rel="noopener">KahlilGarmon.com</a>
+        <p>Writing, speaking, and project updates.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Connect</h2>
+      <div class="links">
+        <a href="https://twitter.com/kahlilgarmon" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://linkedin.com/in/kahlilgarmon" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:kahlil@getmoneybot.com">Email</a>
+      </div>
+    </section>
+  </main>
 
   <footer class="container">
-    <p>Built by <a href="https://twitter.com/kahlilgarmon" target="_blank" rel="noopener">Kahlil Garmon</a> · <a href="/agents">Agent Floor</a></p>
+    <p>© 2026 Kahlil Garmon · <a href="/agents">Agent Floor</a></p>
   </footer>
 
   <script>
@@ -259,18 +232,22 @@
         const res = await fetch('/api/compound', { cache: 'no-store' });
         const data = await res.json();
         const dot = document.getElementById('statusDot');
-        const status = document.getElementById('agentStatus');
+        const text = document.getElementById('agentText');
+        const meta = document.getElementById('agentMeta');
         if (data.stale || !data.agents) {
           dot.className = 'status-dot warn';
-          status.textContent = 'Agents temporarily stale';
+          text.textContent = 'Agents temporarily stale';
+          meta.textContent = 'Last sync unavailable';
         } else {
           const working = data.agents.filter(a => a.status === 'working').length;
-          dot.className = working > 0 ? 'status-dot' : 'status-dot';
-          status.textContent = `${data.agents.length} agents · ${working} working · ${data.decisions?.length || data.decisionCount || 0} pending decision${(data.decisions?.length || data.decisionCount || 0) === 1 ? '' : 's'}`;
+          dot.className = 'status-dot';
+          text.textContent = `${data.agents.length} agents online`;
+          meta.textContent = `${working} working · ${data.decisions?.length || data.decisionCount || 0} pending decision${(data.decisions?.length || data.decisionCount || 0) === 1 ? '' : 's'} · updated ${new Date(data.sourceGeneratedAt).toLocaleTimeString()}`;
         }
       } catch (e) {
         document.getElementById('statusDot').className = 'status-dot danger';
-        document.getElementById('agentStatus').textContent = 'Unable to load agent status';
+        document.getElementById('agentText').textContent = 'Agents offline';
+        document.getElementById('agentMeta').textContent = 'Unable to load status';
       }
     }
     fetchAgentStatus();
