@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://strain-register-absolutely-favourite.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://strain-register-absolutely-favourite.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://strain-register-absolutely-favourite.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://strain-register-absolutely-favourite.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://broadcast-with-agency-avi.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://broadcast-with-agency-avi.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://broadcast-with-agency-avi.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://broadcast-with-agency-avi.trycloudflare.com/" }
   ],
   "headers": [
     {
