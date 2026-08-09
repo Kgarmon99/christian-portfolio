@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://soccer-researchers-boom-dev.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://soccer-researchers-boom-dev.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://soccer-researchers-boom-dev.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://soccer-researchers-boom-dev.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/" }
   ],
   "headers": [
     {
