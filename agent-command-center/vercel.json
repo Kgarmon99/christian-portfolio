@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://chemicals-plenty-mia-webshots.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://chemicals-plenty-mia-webshots.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://chemicals-plenty-mia-webshots.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://chemicals-plenty-mia-webshots.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://promotional-saw-boulevard-rehab.trycloudflare.com/" }
   ],
   "headers": [
     {
