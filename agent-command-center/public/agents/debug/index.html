@@ -55,37 +55,29 @@
     </div>
   </main>
   <script>
+    const TUNNEL_URL = 'https://kgbuilds-mac.tailce70ec.ts.net';
+    async function fetchTunnel(path) {
+      try {
+        return await fetch(`${TUNNEL_URL}${path}`, { cache: 'no-store', mode: 'cors' }).then(r => r.json());
+      } catch (e) {
+        return await fetch(path, { cache: 'no-store' }).then(r => r.json());
+      }
+    }
     async function load() {
       try {
-        const edge = await fetch('/api/compound', { cache: 'no-store' }).then(r => r.json());
+        const edge = await fetchTunnel('/api/compound');
         const edgeAge = edge.sourceGeneratedAt ? Math.floor((Date.now() - new Date(edge.sourceGeneratedAt).getTime())/1000) : null;
         const working = edge.agents?.filter(a => a.status === 'working').length || 0;
         document.getElementById('edgeSummary').innerHTML = `
           <span class="status ${edgeAge && edgeAge < 120 ? 'ok' : 'warn'}">${edgeAge !== null ? edgeAge + 's old' : 'unknown age'}</span>
           <span class="status ok">${edge.agents?.length || 0} agents</span>
           <span class="status ${working ? 'ok' : 'warn'}">${working} working</span>
-          <div class="mono" style="margin-top:8px;color:var(--dim)">updatedAt: ${edge.updatedAt || 'n/a'}</div>
+          <div class="mono" style="margin-top:8px;color:var(--dim)">updatedAt: ${edge.updatedAt || 'n/a'} ${edge._fallback ? '(fallback)' : '(tunnel)'}</div>
         `;
         document.getElementById('edgeRaw').textContent = JSON.stringify(edge, null, 2);
       } catch (e) {
         document.getElementById('edgeSummary').innerHTML = '<span class="status bad">Error</span>';
         document.getElementById('edgeRaw').textContent = e.message;
-      }
-
-      try {
-        const local = await fetch('http://127.0.0.1:7331/api/compound?refresh=1', { cache: 'no-store' }).then(r => r.json());
-        const localAge = local.sourceGeneratedAt ? Math.floor((Date.now() - new Date(local.sourceGeneratedAt).getTime())/1000) : null;
-        const working = local.agents?.filter(a => a.status === 'working').length || 0;
-        document.getElementById('localSummary').innerHTML = `
-          <span class="status ${localAge && localAge < 120 ? 'ok' : 'warn'}">${localAge !== null ? localAge + 's old' : 'unknown age'}</span>
-          <span class="status ok">${local.agents?.length || 0} agents</span>
-          <span class="status ${working ? 'ok' : 'warn'}">${working} working</span>
-          <div class="mono" style="margin-top:8px;color:var(--dim)">sourceGeneratedAt: ${local.sourceGeneratedAt || 'n/a'}</div>
-        `;
-        document.getElementById('localRaw').textContent = JSON.stringify(local, null, 2);
-      } catch (e) {
-        document.getElementById('localSummary').innerHTML = '<span class="status bad">Unreachable</span>';
-        document.getElementById('localRaw').textContent = e.message;
       }
 
       try {
@@ -96,7 +88,7 @@
       }
     }
     load();
-    setInterval(load, 10000);
+    setInterval(load, 2000);
   </script>
 </body>
 </html>

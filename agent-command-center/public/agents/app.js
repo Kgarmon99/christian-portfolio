@@ -47,8 +47,25 @@ function renderBotLauncher(){$('botLauncher').innerHTML=agentList().map(a=>a.tel
 function openBots(){renderBotLauncher();if(!$('botsSheet').open)$('botsSheet').showModal()}
 function focusAgent(id){state.focusId=id;state.filter='all';state.view='office';$('agentSheet').open&&$('agentSheet').close();render()}
 function clearFocus(){state.focusId=null;render()}
-async function load(force=false){const btn=$('refresh');btn.disabled=true;btn.setAttribute('aria-busy','true');btn.textContent='…';try{const r=await fetch(`/api/compound${force?'?refresh=1':''}`,{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);ingestPayload(await r.json());if(force)$('announcer').textContent=r.headers.get('X-Refresh-Throttled')?'Refresh is cooling down; the latest snapshot is shown.':r.headers.get('X-Refresh-Queued')?'A full refresh is queued behind the current update.':'Live telemetry refreshed.'}catch(e){$('error').className='error show';$('error').textContent=`Could not reach the compound: ${e.message}`}finally{btn.disabled=false;btn.removeAttribute('aria-busy');btn.textContent='↻'}}
-function connectEvents(){state.eventSource?.close();clearTimeout(state.reconnectTimer);state.connection='reconnecting';updateAccuracy();pollLoop()}function pollLoop(){state.reconnectTimer=setTimeout(async()=>{try{const r=await fetch('/api/compound',{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);const data=await r.json();ingestPayload(data);state.connection='live';state.lastEventAt=Date.now();state.reconnectAttempts=0;updateAccuracy();if($('zoneSheet').open&&$('zoneSheet').dataset.zone==='mission')openZone('mission')}catch(err){console.error('Poll failed:',err);state.connection='reconnecting';updateAccuracy();state.reconnectAttempts=(state.reconnectAttempts||0)+1}pollLoop()},5000)}
+const TUNNEL_URL='https://kgbuilds-mac.tailce70ec.ts.net';
+const FALLBACK_URL='/api/compound';
+
+async function fetchCompound(force=false){
+  const qs=force?'?refresh=1':'';
+  try{
+    const r=await fetch(`${TUNNEL_URL}/api/compound${qs}`,{cache:'no-store',mode:'cors'});
+    if(!r.ok)throw new Error(`Tunnel HTTP ${r.status}`);
+    return await r.json();
+  }catch(e){
+    console.warn('Tunnel failed, falling back to Edge Config:',e.message);
+    const r=await fetch(`${FALLBACK_URL}${qs}`,{cache:'no-store'});
+    if(!r.ok)throw new Error(`Fallback HTTP ${r.status}`);
+    return await r.json();
+  }
+}
+
+async function load(force=false){const btn=$('refresh');btn.disabled=true;btn.setAttribute('aria-busy','true');btn.textContent='…';try{const data=await fetchCompound(force);ingestPayload(data);if(force)$('announcer').textContent=data._fallback?'Refresh is cooling down; the latest snapshot is shown.':'Live telemetry refreshed.'}catch(e){$('error').className='error show';$('error').textContent=`Could not reach the compound: ${e.message}`}finally{btn.disabled=false;btn.removeAttribute('aria-busy');btn.textContent='↻'}}
+function connectEvents(){state.eventSource?.close();clearTimeout(state.reconnectTimer);state.connection='reconnecting';updateAccuracy();pollLoop()}function pollLoop(){state.reconnectTimer=setTimeout(async()=>{try{const data=await fetchCompound();ingestPayload(data);state.connection='live';state.lastEventAt=Date.now();state.reconnectAttempts=0;updateAccuracy();if($('zoneSheet').open&&$('zoneSheet').dataset.zone==='mission')openZone('mission')}catch(err){console.error('Poll failed:',err);state.connection='reconnecting';updateAccuracy();state.reconnectAttempts=(state.reconnectAttempts||0)+1}pollLoop()},2000)}
 function maybeOnboard(){try{if(!new URLSearchParams(location.search).has('no-tour')&&!localStorage.getItem('agent-compound-onboarded-v2'))$('onboarding').showModal()}catch(_){}}
 document.addEventListener('click',e=>{const filter=e.target.closest('[data-filter]');if(filter){state.filter=filter.dataset.filter;const focused=agentList().find(a=>a.id===state.focusId);if(focused&&state.filter!=='all'&&focused.status!==state.filter)state.focusId=null;render();$('announcer').textContent=`${agentList().filter(a=>state.filter==='all'||a.status===state.filter).length} agents shown.`;return}const agent=e.target.closest('[data-agent]');if(agent){if($('zoneSheet').open)$('zoneSheet').close();showAgent(agent.dataset.agent);return}const zone=e.target.closest('[data-zone]');if(zone){openZone(zone.dataset.zone);return}const view=e.target.closest('.nav-btn[data-view]');if(view){setView(view.dataset.view);return}const focus=e.target.closest('[data-focus-agent]');if(focus){focusAgent(focus.dataset.focusAgent);return}if(e.target.closest('[data-clear-focus]')){clearFocus();return}const close=e.target.closest('[data-close]');if(close)$(close.dataset.close).close()});
 document.querySelectorAll('dialog').forEach(dialog=>{dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener('close',()=>{if(dialog.id==='agentSheet')state.openAgentId=null})});
