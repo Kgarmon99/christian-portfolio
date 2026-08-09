@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://knives-enter-writes-prospects.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://knives-enter-writes-prospects.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://knives-enter-writes-prospects.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://knives-enter-writes-prospects.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://intend-commons-remaining-scheduling.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://intend-commons-remaining-scheduling.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://intend-commons-remaining-scheduling.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://intend-commons-remaining-scheduling.trycloudflare.com/" }
   ],
   "headers": [
     {
