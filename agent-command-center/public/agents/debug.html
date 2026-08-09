@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Floor Debug | KG Builds</title>
+  <style>
+    :root { --bg:#0f172a; --surface:#1e293b; --text:#f8fafc; --dim:#94a3b8; --accent:#22d3ee; --ok:#4ade80; --warn:#fbbf24; --bad:#f87171; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background:var(--bg); color:var(--text); font-size:13px; line-height:1.5; }
+    header { padding: 16px 24px; border-bottom: 1px solid #334155; display:flex; justify-content:space-between; align-items:center; }
+    h1 { margin:0; font-size:1.1rem; }
+    a { color:var(--accent); }
+    main { padding:24px; max-width:1200px; margin:0 auto; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+    @media (max-width:900px){ .grid { grid-template-columns:1fr; } }
+    .panel { background:var(--surface); border:1px solid #334155; border-radius:10px; padding:16px; }
+    .panel h2 { margin:0 0 12px; font-size:0.95rem; color:var(--dim); text-transform:uppercase; letter-spacing:0.05em; }
+    .status { display:inline-block; padding:2px 8px; border-radius:4px; font-weight:600; }
+    .status.ok { background:rgba(74,222,128,0.15); color:var(--ok); }
+    .status.warn { background:rgba(251,191,36,0.15); color:var(--warn); }
+    .status.bad { background:rgba(248,113,113,0.15); color:var(--bad); }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th, td { text-align:left; padding:6px 8px; border-bottom:1px solid #334155; }
+    th { color:var(--dim); font-weight:500; font-size:0.8rem; text-transform:uppercase; }
+    pre { white-space:pre-wrap; word-break:break-word; max-height:400px; overflow:auto; background:#020617; padding:12px; border-radius:6px; margin:0; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .refresh { background:var(--accent); color:#0f172a; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agent Floor Debug</h1>
+    <div>
+      <a href="/agents">← Back to Agent Floor</a>
+      <button class="refresh" onclick="load()">Refresh</button>
+    </div>
+  </header>
+  <main>
+    <div class="grid">
+      <div class="panel">
+        <h2>Edge Config Snapshot</h2>
+        <div id="edgeSummary">Loading…</div>
+        <pre id="edgeRaw"></pre>
+      </div>
+      <div class="panel">
+        <h2>Local agent-compound</h2>
+        <div id="localSummary">Loading…</div>
+        <pre id="localRaw"></pre>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:20px;">
+      <h2>Health Check</h2>
+      <pre id="healthRaw">Loading…</pre>
+    </div>
+  </main>
+  <script>
+    async function load() {
+      try {
+        const edge = await fetch('/api/compound', { cache: 'no-store' }).then(r => r.json());
+        const edgeAge = edge.sourceGeneratedAt ? Math.floor((Date.now() - new Date(edge.sourceGeneratedAt).getTime())/1000) : null;
+        const working = edge.agents?.filter(a => a.status === 'working').length || 0;
+        document.getElementById('edgeSummary').innerHTML = `
+          <span class="status ${edgeAge && edgeAge < 120 ? 'ok' : 'warn'}">${edgeAge !== null ? edgeAge + 's old' : 'unknown age'}</span>
+          <span class="status ok">${edge.agents?.length || 0} agents</span>
+          <span class="status ${working ? 'ok' : 'warn'}">${working} working</span>
+          <div class="mono" style="margin-top:8px;color:var(--dim)">updatedAt: ${edge.updatedAt || 'n/a'}</div>
+        `;
+        document.getElementById('edgeRaw').textContent = JSON.stringify(edge, null, 2);
+      } catch (e) {
+        document.getElementById('edgeSummary').innerHTML = '<span class="status bad">Error</span>';
+        document.getElementById('edgeRaw').textContent = e.message;
+      }
+
+      try {
+        const local = await fetch('http://127.0.0.1:7331/api/compound?refresh=1', { cache: 'no-store' }).then(r => r.json());
+        const localAge = local.sourceGeneratedAt ? Math.floor((Date.now() - new Date(local.sourceGeneratedAt).getTime())/1000) : null;
+        const working = local.agents?.filter(a => a.status === 'working').length || 0;
+        document.getElementById('localSummary').innerHTML = `
+          <span class="status ${localAge && localAge < 120 ? 'ok' : 'warn'}">${localAge !== null ? localAge + 's old' : 'unknown age'}</span>
+          <span class="status ok">${local.agents?.length || 0} agents</span>
+          <span class="status ${working ? 'ok' : 'warn'}">${working} working</span>
+          <div class="mono" style="margin-top:8px;color:var(--dim)">sourceGeneratedAt: ${local.sourceGeneratedAt || 'n/a'}</div>
+        `;
+        document.getElementById('localRaw').textContent = JSON.stringify(local, null, 2);
+      } catch (e) {
+        document.getElementById('localSummary').innerHTML = '<span class="status bad">Unreachable</span>';
+        document.getElementById('localRaw').textContent = e.message;
+      }
+
+      try {
+        const health = await fetch('/api/health', { cache: 'no-store' }).then(r => r.json());
+        document.getElementById('healthRaw').textContent = JSON.stringify(health, null, 2);
+      } catch (e) {
+        document.getElementById('healthRaw').textContent = e.message;
+      }
+    }
+    load();
+    setInterval(load, 10000);
+  </script>
+</body>
+</html>

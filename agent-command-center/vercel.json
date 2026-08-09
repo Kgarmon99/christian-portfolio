@@ -2,11 +2,12 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/compound", "destination": "/api/compound.js" }
+    { "source": "/api/compound", "destination": "/api/compound.js" },
+    { "source": "/api/health", "destination": "/api/health.js" }
   ],
   "headers": [
     {
-      "source": "/api/compound",
+      "source": "/api/(compound|health)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
         { "key": "Access-Control-Allow-Origin", "value": "*" }
