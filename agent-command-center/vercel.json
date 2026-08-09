@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://guardian-set-oxide-practitioners.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://acting-road-robot-charter.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://acting-road-robot-charter.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://acting-road-robot-charter.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://acting-road-robot-charter.trycloudflare.com/" }
   ],
   "headers": [
     {
