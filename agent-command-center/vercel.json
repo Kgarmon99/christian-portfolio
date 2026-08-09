@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://assists-describes-immigrants-cited.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://assists-describes-immigrants-cited.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://assists-describes-immigrants-cited.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://assists-describes-immigrants-cited.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://attempt-segments-evening-implementing.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://attempt-segments-evening-implementing.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://attempt-segments-evening-implementing.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://attempt-segments-evening-implementing.trycloudflare.com/" }
   ],
   "headers": [
     {
