@@ -1,58 +1,67 @@
-import { get } from '@vercel/edge-config';
-
 export const config = {
   runtime: 'edge',
 };
+
+const EDGE_CONFIG_ID = process.env.EDGE_CONFIG_ID || 'ecfg_xewteivxfrqvj87ymkikog9zm4hp';
+const TOKEN = process.env.VERCEL_API_TOKEN;
+const TEAM_ID = process.env.VERCEL_TEAM_ID || 'team_hFyozVWSOzlq1L9LuWo9U94e';
+
+function jsonResponse(body, status = 200, extraHeaders = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store, no-cache, must-revalidate',
+      'Access-Control-Allow-Origin': '*',
+      ...extraHeaders,
+    },
+  });
+}
+
+async function readEdgeConfig() {
+  if (!TOKEN) {
+    throw new Error('VERCEL_API_TOKEN not set');
+  }
+  const url = `https://api.vercel.com/v1/edge-config/${EDGE_CONFIG_ID}/items?teamId=${TEAM_ID}`;
+  const res = await fetch(url, {
+    headers: { Authorization: `Bearer ${TOKEN}` },
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(`Edge Config read failed: ${res.status} ${err.message || ''}`);
+  }
+  const { items } = await res.json();
+  return items?.compound || null;
+}
 
 export default async function handler(req) {
   const url = new URL(req.url);
   const force = url.searchParams.get('refresh') === '1';
 
   try {
-    const data = await get('compound');
+    const data = await readEdgeConfig();
 
     if (!data) {
-      return new Response(JSON.stringify({
+      return jsonResponse({
         agents: [],
         decisions: [],
         stale: true,
         error: 'No telemetry received yet. The sync script may still be starting.',
         updatedAt: new Date().toISOString(),
-      }), {
-        status: 503,
-        headers: {
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-store, no-cache, must-revalidate',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+      }, 503);
     }
 
-    return new Response(JSON.stringify({
+    return jsonResponse({
       ...data,
       _refreshed: force,
-    }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-store, no-cache, must-revalidate',
-        'Access-Control-Allow-Origin': '*',
-      },
     });
   } catch (err) {
-    return new Response(JSON.stringify({
+    return jsonResponse({
       agents: [],
       decisions: [],
       stale: true,
-      error: `Edge Config read failed: ${err.message}`,
+      error: `Read failed: ${err.message}`,
       updatedAt: new Date().toISOString(),
-    }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-store',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    }, 500);
   }
 }
