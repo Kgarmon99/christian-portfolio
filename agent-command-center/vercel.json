@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://ira-task-housing-rpg.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://ira-task-housing-rpg.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://ira-task-housing-rpg.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://ira-task-housing-rpg.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/" }
   ],
   "headers": [
     {
