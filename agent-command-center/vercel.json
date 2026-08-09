@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://miller-guests-kay-tile.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://miller-guests-kay-tile.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://miller-guests-kay-tile.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://miller-guests-kay-tile.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://accuracy-advertisements-kenneth-shows.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://accuracy-advertisements-kenneth-shows.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://accuracy-advertisements-kenneth-shows.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://accuracy-advertisements-kenneth-shows.trycloudflare.com/" }
   ],
   "headers": [
     {
