@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#dff6ff">
+<title>MoneyBot Towers | Agent Floor</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/agents/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#primaryNav">Skip to navigation</a><a class="skip-link" href="#mainContent">Skip to content</a>
+<main class="shell" id="mainContent" tabindex="-1">
+<header class="top"><div><div class="eyebrow">Agent Floor</div><h1>MoneyBot Towers</h1><div class="subtitle">Live operations you can explore, not just watch.</div><div class="accuracy" aria-label="Live telemetry freshness"><span id="connection" class="reconnecting">Reconnecting</span><span id="lastEvent">No events yet</span><span id="dataAge">Data age unknown</span><span id="sourceFresh">Sources pending</span></div></div><div class="top-actions"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Change office lighting">◐<small>Auto</small></button><button class="refresh" id="refresh" type="button" aria-label="Refresh live telemetry">↻</button></div></header>
+<div class="error" id="error" role="status" aria-live="polite"></div>
+<section class="health" id="health" aria-label="System health"></section>
+<nav class="toolbar" id="filters" aria-label="Filter agents"></nav>
+<section class="view active" id="officeView" aria-label="Office view">
+  <section class="world" id="world" aria-label="MoneyBot Towers Agent Floor">
+    <i class="stars" aria-hidden="true"></i><i class="moon" aria-hidden="true"></i><i class="sun" aria-hidden="true"></i><i class="cloud c1" aria-hidden="true"></i><i class="cloud c2" aria-hidden="true"></i>
+    <div class="compound-sign"><strong>MONEYBOT TOWERS</strong><small>AGENT FLOOR</small></div><div class="office-floor" aria-hidden="true"></div>
+    <div class="back-wall" aria-hidden="true"><i class="window w1"></i><i class="window w2"></i><i class="pinboard"></i><div class="wall-screen">MISSION<br>CONTROL</div></div>
+    <button class="scene-zone build-lab" data-zone="build" data-label="Build Lab" aria-label="Open engineering team"><i class="team-table build-table one"></i><i class="team-table build-table two"></i><i class="code-wall"></i></button>
+    <button class="scene-zone money-lab" data-zone="money" data-label="Money Lab" aria-label="Open finance and capital team"><i class="money-board"></i><i class="team-table money-table"></i></button>
+    <button class="scene-zone growth-pod" data-zone="growth" data-label="Growth Pod" aria-label="Open fundraising and communications team"><i class="growth-board"></i><i class="team-table growth-table"></i></button>
+    <button class="scene-zone mission" data-zone="mission" data-label="Mission Control" aria-label="Open gateway, watchdog, and freshness"><i class="console"></i></button>
+    <button class="scene-zone content-studio" data-zone="content" data-label="Content Studio" aria-label="Open MediaBot content studio"><i class="studio-desk"></i><i class="studio-light"></i></button>
+    <button class="scene-zone lounge" data-zone="lounge" data-label="Founder Lounge" aria-label="Open recent completions"><i class="startup-rug"></i><i class="sofa"></i><i class="coffee-table"></i><i class="plant"></i></button>
+    <button class="scene-zone charging" data-zone="charging" data-label="Bot Dock" aria-label="Open offline agents"><i class="charge-rack"><b></b><b></b><b></b></i></button>
+    <div class="focus-hud" id="focusHud"></div><div class="world-agents" id="worldAgents"></div>
+  </section>
+</section>
+<section class="view" id="dashboardView" aria-label="Agent dashboard">
+  <div class="section-title"><h2>Agent Fleet</h2><span id="visibleCount"></span></div><div class="dashboard-grid" id="dashAgents"></div>
+  <div class="section-title"><h2>Pending Decisions</h2><span id="decisionLabel"></span></div><section class="decisions" id="decisions"></section>
+</section>
+<footer class="footer" id="updated">Connecting…</footer>
+</main>
+<div class="sr-only" id="announcer" role="status" aria-live="polite" aria-atomic="true"></div>
+<nav class="bottom-nav" id="primaryNav" aria-label="Primary views" tabindex="-1"><button class="nav-btn active" type="button" data-view="office" aria-controls="officeView" aria-current="page"><span aria-hidden="true">⌂</span>Office</button><button class="nav-btn" type="button" data-view="dashboard" aria-controls="dashboardView"><span aria-hidden="true">▦</span>Dashboard</button><button class="nav-btn" id="activityNav" type="button" data-view="activity" aria-haspopup="dialog" aria-controls="activitySheet" aria-label="Activity, no unread updates"><span aria-hidden="true">↯ <b class="activity-badge" id="activityBadge">0</b></span>Activity</button><button class="nav-btn" type="button" data-view="bots" aria-haspopup="dialog" aria-controls="botsSheet"><span aria-hidden="true">✈</span>Bots</button></nav>
+<dialog class="sheet" id="agentSheet" aria-labelledby="agentName" aria-describedby="agentRole"><div class="sheet-head"><div><div class="sheet-kicker">Read-only command profile</div><h3 id="agentName"></h3><p id="agentRole"></p></div><button class="close" type="button" data-close="agentSheet" aria-label="Close agent profile">×</button></div><div class="sheet-body" id="agentBody"></div></dialog>
+<dialog class="sheet" id="zoneSheet" aria-labelledby="zoneTitle" aria-describedby="zoneSubtitle"><div class="sheet-head"><div><div class="sheet-kicker">Office zone</div><h3 id="zoneTitle"></h3><p id="zoneSubtitle"></p></div><button class="close" type="button" data-close="zoneSheet" aria-label="Close zone">×</button></div><div class="sheet-body" id="zoneBody"></div></dialog>
+<dialog class="sheet" id="activitySheet" aria-labelledby="activityTitle" aria-describedby="activityDescription"><div class="sheet-head"><div><div class="sheet-kicker">This browser session</div><h3 id="activityTitle">Live Activity</h3><p id="activityDescription">Built from authoritative telemetry changes received in this browser.</p></div><button class="close" type="button" data-close="activitySheet" aria-label="Close activity">×</button></div><div class="sheet-body"><div class="timeline" id="timeline"></div></div></dialog>
+<dialog class="sheet" id="botsSheet" aria-labelledby="botsTitle" aria-describedby="botsDescription"><div class="sheet-head"><div><div class="sheet-kicker">One-tap access</div><h3 id="botsTitle">Bot Launcher</h3><p id="botsDescription">Jump directly into each connected Telegram bot.</p></div><button class="close" type="button" data-close="botsSheet" aria-label="Close bot launcher">×</button></div><div class="sheet-body"><div class="mini-list" id="botLauncher"></div></div></dialog>
+<dialog class="onboarding" id="onboarding" aria-labelledby="onboardingTitle" aria-describedby="onboardingDescription"><div class="onboarding-body"><div class="eyebrow">Welcome to the live office</div><h2 id="onboardingTitle">Tap into the compound.</h2><p id="onboardingDescription">Every status and task count comes from live OpenClaw telemetry. This interface is read-only.</p><div class="hint-grid"><div class="hint"><i aria-hidden="true">🤖</i><div><strong>Tap an agent</strong><span>See exact activity reasons, load, elapsed time, and transitions.</span></div></div><div class="hint"><i aria-hidden="true">◎</i><div><strong>Tap an office zone</strong><span>Explore health, active staff, recent completions, or offline agents.</span></div></div><div class="hint"><i aria-hidden="true">↯</i><div><strong>Open Activity</strong><span>Watch status and task-count changes as live telemetry arrives.</span></div></div></div><button class="primary" type="button" id="dismissOnboarding">Explore the office</button></div></dialog>
+<script src="/agents/app.js" defer></script>
+</body>
+</html>
