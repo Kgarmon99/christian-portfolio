@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://mins-trends-gains-analyst.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://mins-trends-gains-analyst.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://mins-trends-gains-analyst.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://mins-trends-gains-analyst.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://henry-rom-hughes-duo.trycloudflare.com/" }
   ],
   "headers": [
     {
