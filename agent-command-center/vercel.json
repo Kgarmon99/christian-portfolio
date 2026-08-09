@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://rose-cameras-buffer-surely.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://syndicate-checked-chosen-recognized.trycloudflare.com/" }
   ],
   "headers": [
     {
