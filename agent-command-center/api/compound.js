@@ -30,8 +30,8 @@ async function readEdgeConfig() {
     const err = await res.json().catch(() => ({}));
     throw new Error(`Edge Config read failed: ${res.status} ${err.message || ''}`);
   }
-  const { items } = await res.json();
-  const compoundItem = items?.find(item => item.key === 'compound');
+  const items = await res.json();
+  const compoundItem = Array.isArray(items) ? items.find(item => item.key === 'compound') : null;
   return compoundItem?.value || null;
 }
 
