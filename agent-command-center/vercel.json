@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://grande-ten-asthma-infringement.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://grande-ten-asthma-infringement.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://grande-ten-asthma-infringement.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://grande-ten-asthma-infringement.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://commitments-tuesday-interventions-fragrances.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://commitments-tuesday-interventions-fragrances.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://commitments-tuesday-interventions-fragrances.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://commitments-tuesday-interventions-fragrances.trycloudflare.com/" }
   ],
   "headers": [
     {
