@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://subcommittee-sink-walks-bundle.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://subcommittee-sink-walks-bundle.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://subcommittee-sink-walks-bundle.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://subcommittee-sink-walks-bundle.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://beyond-asia-plate-desirable.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://beyond-asia-plate-desirable.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://beyond-asia-plate-desirable.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://beyond-asia-plate-desirable.trycloudflare.com/" }
   ],
   "headers": [
     {
