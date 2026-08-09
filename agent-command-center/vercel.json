@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://narrative-broader-lucas-conversion.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://narrative-broader-lucas-conversion.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://narrative-broader-lucas-conversion.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://narrative-broader-lucas-conversion.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://stewart-moore-awesome-participate.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://stewart-moore-awesome-participate.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://stewart-moore-awesome-participate.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://stewart-moore-awesome-participate.trycloudflare.com/" }
   ],
   "headers": [
     {
