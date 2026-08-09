@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://majority-circuits-little-trace.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://majority-circuits-little-trace.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://majority-circuits-little-trace.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://majority-circuits-little-trace.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://milk-ultimate-barriers-additions.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://milk-ultimate-barriers-additions.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://milk-ultimate-barriers-additions.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://milk-ultimate-barriers-additions.trycloudflare.com/" }
   ],
   "headers": [
     {
