@@ -2,10 +2,10 @@
   "version": 2,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/api/$1" },
-    { "source": "/styles.css", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/styles.css" },
-    { "source": "/app.js", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/app.js" },
-    { "source": "/(.*)", "destination": "https://gbp-comm-encountered-photography.trycloudflare.com/" }
+    { "source": "/api/(.*)", "destination": "https://crimes-highlight-jeff-reason.trycloudflare.com/api/$1" },
+    { "source": "/styles.css", "destination": "https://crimes-highlight-jeff-reason.trycloudflare.com/styles.css" },
+    { "source": "/app.js", "destination": "https://crimes-highlight-jeff-reason.trycloudflare.com/app.js" },
+    { "source": "/(.*)", "destination": "https://crimes-highlight-jeff-reason.trycloudflare.com/" }
   ],
   "headers": [
     {
