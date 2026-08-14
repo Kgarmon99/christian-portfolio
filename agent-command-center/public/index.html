@@ -236,6 +236,12 @@
       position: absolute;
       inset: 0;
       z-index: 1;
+      cursor: pointer;
+    }
+    .card-link:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: -4px;
+      border-radius: 16px;
     }
 
     .footer {
@@ -376,13 +382,25 @@
           </div>
 
           <div class="card aspiration">
-            <div class="card-status"><span class="dot idea"></span> Idea</div>
-            <h3>6. PG-27 BotCity</h3>
+            <a class="card-link" href="https://botcity-deploy-money-bot.vercel.app" target="_blank" rel="noopener" aria-label="Open BotCity"></a>
+            <div class="card-status"><span class="dot"></span> Active</div>
+            <h3>6. BotCity</h3>
             <p>A 3D city where young people explore money concepts through characters, quests, and social gameplay. The long-term MoneyBot world.</p>
             <div class="card-tags">
               <span class="tag">Metaverse</span>
               <span class="tag">3D World</span>
               <span class="tag">Long-term</span>
+            </div>
+          </div>
+
+          <div class="card aspiration">
+            <a class="card-link" href="https://ipg-upgraded.vercel.app" target="_blank" rel="noopener" aria-label="Open iPG2 / iGT"></a>
+            <div class="card-status"><span class="dot"></span> Active</div>
+            <h3>7. iPG2 / iGT</h3>
+            <p>A YC-style interview practice app built to help founders sharpen their answers and prepare for high-stakes conversations.</p>
+            <div class="card-tags">
+              <span class="tag">Interview Practice</span>
+              <span class="tag">Founders</span>
             </div>
           </div>
         </div>
